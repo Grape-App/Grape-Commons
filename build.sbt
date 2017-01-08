@@ -10,6 +10,8 @@ val ORGANIZATION_URI =  url("http://grape-app.com")
 val PROJECT_NAME = "Grape-Commons"
 val PROJECT_START_YEAR = 2017
 
+git.useGitDescribe := true
+enablePlugins(GitVersioning)
 
 // -------------------------------------------------------------------------------------------------
 // PACKAGE CONFIGURATION
