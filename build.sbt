@@ -71,6 +71,10 @@ publishArtifact in Test := false
 
 pomIncludeRepository := { _ => false }
 
+pomExtra := <scm>
+  <url>git@github.com:Grape-App/Grape-Commons.git</url>
+  <connection>scm:git:git@github.com:jsuereth/scala-arm.git</connection>
+</scm>
 
 // -------------------------------------------------------------------------------------------------
 // Copy-Paste-Detector Configuration (cpd)
