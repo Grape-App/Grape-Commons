@@ -6,7 +6,7 @@ import de.johoop.cpd4sbt.ReportType.XML
 // -------------------------------------------------------------------------------------------------
 val ORGANIZATION_NAME = "Grape"
 val ORGANIZATION_PACKAGE = "rocks.grape"
-val ORGANIZATION_URI =  url("http://grape-app.com")
+val ORGANIZATION_URI = url("http://grape-app.com")
 val PROJECT_NAME = "Grape-Commons"
 val PROJECT_START_YEAR = 2017
 
@@ -56,16 +56,21 @@ libraryDependencies ++= Seq(
 // -------------------------------------------------------------------------------------------------
 useGpg := true
 pgpReadOnly := false
-publishMavenStyle := true
-publishArtifact in Test := false
-pomIncludeRepository := { _ => false }
+
 publishTo := {
   val nexus = "https://oss.sonatype.org/"
-  if (isSnapshot.value)
+  if (isSnapshot.value) {
     Some("snapshots" at nexus + "content/repositories/snapshots")
-  else
-    Some("releases"  at nexus + "service/local/staging/deploy/maven2")
+  } else {
+    Some("releases" at nexus + "service/local/staging/deploy/maven2")
+  }
 }
+publishMavenStyle := true
+
+publishArtifact in Test := false
+
+pomIncludeRepository := { _ => false }
+
 
 // -------------------------------------------------------------------------------------------------
 // Copy-Paste-Detector Configuration (cpd)
