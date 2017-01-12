@@ -28,6 +28,10 @@ developers := List(
   Developer("1e0n", "Leon Kunert", "1e0n@grape.rocks", ORGANIZATION_URI)
 )
 
+scmInfo := Some(ScmInfo(
+  url("https://github.com/Grape-App/Grape-Commons.git"),
+  "scm:git:git@github.com:Grape-App/Grape-Commons.git"
+))
 
 // -------------------------------------------------------------------------------------------------
 // SCALA COMPILER SETTINGS
@@ -35,7 +39,6 @@ developers := List(
 scalacOptions in Compile ++= Seq("-deprecation", "-feature", "-unchecked")
 scalaVersion := "2.11.8"
 testOptions in Test += Tests.Argument("-oF") // print stack-traces in tests
-
 
 // -------------------------------------------------------------------------------------------------
 // LIBRARY DEPENDENCIES
@@ -70,11 +73,6 @@ publishMavenStyle := true
 publishArtifact in Test := false
 
 pomIncludeRepository := { _ => false }
-
-pomExtra := <scm>
-  <url>git@github.com:Grape-App/Grape-Commons.git</url>
-  <connection>scm:git:git@github.com:jsuereth/scala-arm.git</connection>
-</scm>
 
 // -------------------------------------------------------------------------------------------------
 // Copy-Paste-Detector Configuration (cpd)
