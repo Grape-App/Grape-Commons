@@ -22,4 +22,10 @@ object ServiceResult {
    * Create ServiceResult from T.
    */
   def apply[T](result: T): ServiceResult[T] = EitherT[Future, ServiceError, T](Future.successful(Right(result)))
+
+  /**
+   * Create ServiceResult from Either.
+   */
+  def apply[T](result: Either[ServiceError, T]): ServiceResult[T] =
+    EitherT[Future, ServiceError, T](Future.successful(result))
 }
